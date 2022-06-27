@@ -34,7 +34,7 @@ functions:
     events:
       - http:
           path: api/token/{code}
-          method: get
+          method: getserverless deploy
 
 # you can overwrite defaults here
 #  stage: dev
