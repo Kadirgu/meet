@@ -10,7 +10,6 @@
 #    docs.serverless.com
 #
 # Happy Coding!
-
 service: auth-server
 
 provider:
@@ -30,7 +29,12 @@ functions:
       - http:
           path: api/get-auth-url
           method: get
- 
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get
 
 # you can overwrite defaults here
 #  stage: dev
