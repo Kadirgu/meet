@@ -1,3 +1,5 @@
+org: lengthyfinch
+console: true
 service: auth-server
 
 provider:
