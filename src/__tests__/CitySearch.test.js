@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch.js';
+//<<<<<<< HEAD
 import { mockData } from '../mock-data';
+//>>>>>>> main
 import { extractLocations } from '../api';
 
 describe('<CitySearch /> component', () => {
