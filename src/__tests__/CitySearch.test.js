@@ -8,10 +8,18 @@ import { extractLocations } from '../api';
 
 describe('<CitySearch /> component', () => {
 
+    handleItemClicked = (suggestion) => {
+        this.setState({
+            query: suggestion
+        });
+
+        this.props.updateEvents(suggestion);
+    }
+
     let locations, CitySearchWrapper;
     beforeAll(() => {
         locations = extractLocations(mockData);
-        CitySearchWrapper = shallow(<CitySearch locations={locations} />);
+        CitySearchWrapper = shallow(<CitySearch locations={locations} updateEvents={() => { }} />);
     });
 
     test('render text input', () => {

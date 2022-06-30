@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
-import { ErrorAlert } from './Alert';
 
-class NumberOfEvents extends Component {
-    state = {
-        numberOfEvents: 32,
-    };
-
-    handleInputChanged = (event) => {
-        const value = event.target.value;
-        if (!isNaN(value) && value >= 0 && value <= 32) {
-            this.setState({ numberOfEvents: value, ErrorText: '' });
+export class NumberOfEvents extends Component {
+    constructor(props) {
+        super(props);
+        this.state = ({
+            numberOfEvents: '12'
+        })
+    }
+    changeNumOfEvents = (e) => {
+        let newValue = parseInt(e.target.value);
+        if ((newValue > 33) || (newValue < 1)) {
+            this.setState({
+                numberOfEvents: newValue,
+                infoText: 'Please choose a number between 1 and 32',
+            })
         } else {
-            this.setState({ ErrorText: 'Please select a number from 1 to 32.' });
+            this.setState({
+                numberOfEvents: newValue,
+                infoText: ' ',
+            })
         }
-        this.props.updateEvents(undefined, value);
-    };
+        this.props.updateEvents(undefined, newValue);
+    }
 
     render() {
         return (
-            <div className="numberOfEvents">
-                <label htmlFor="events-number">Number of Events: </label>
-                <br />
-                <input
-                    type="text"
-                    id="events-number"
-                    autoComplete="off"
+            <div className='numberOfEvents' >
+                NumberOfEvents
+                <input className='number events_number__input'
+                    type='number'
                     value={this.state.numberOfEvents}
-                    onChange={this.handleInputChanged}
+                    onChange={this.changeNumOfEvents}
                 />
-                <ErrorAlert text={this.state.ErrorText} />
             </div>
-        );
+        )
     }
 }
+
 export default NumberOfEvents;
