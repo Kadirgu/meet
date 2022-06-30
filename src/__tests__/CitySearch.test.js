@@ -8,14 +8,6 @@ import { extractLocations } from '../api';
 
 describe('<CitySearch /> component', () => {
 
-    handleItemClicked = (suggestion) => {
-        this.setState({
-            query: suggestion
-        });
-
-        this.props.updateEvents(suggestion);
-    }
-
     let locations, CitySearchWrapper;
 
     beforeAll(() => {
