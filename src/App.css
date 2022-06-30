@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-=======@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 
 :root {
   --col-pri: rgb(4, 67, 137);
@@ -24,7 +23,8 @@ body {
 /* code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 } */
->>>>>>>Stashed changes .App {
+
+.App {
   text-align: center;
   padding: 2% 5%;
 }
@@ -36,28 +36,6 @@ body {
 ul {
   padding: 0;
   list-style: none;
-  <<<<<<< Updated upstream
-}
-
-p {
-  margin: 5px 0;
-}
-
-.display-none {
-  display: none;
-}
-
-.showSuggestions {
-  display: block;
-}
-
-input[type="text"],
-input[type="number"] {
-  padding: 8px 6px 8px 10px;
-  border-radius: 4px;
-  outline: none;
-  border: 1px solid #ccc;
-  =======
 }
 
 p {
@@ -120,12 +98,11 @@ input[type="number"] {
   border-radius: 20px;
   outline: 0.2px solid var(--col-qua);
   border: 1px solid #ccc !important;
-  >>>>>>>Stashed changes font-size: 14px;
+  font-size: 14px;
   line-height: 20px;
   align-self: center;
   height: 38px;
-  <<<<<<< Updated upstream=======color: var(--col-pri) !important;
-  >>>>>>>Stashed changes
+  color: var(--col-pri) !important;
 }
 
 .city {
@@ -135,22 +112,6 @@ input[type="number"] {
 .CitySearch {
   display: flex;
   flex-direction: column;
-  <<<<<<< Updated upstream flex-basis: 300px;
-  max-width: 300px;
-  margin: auto;
-  position: relative;
-}
-
-.suggestions {
-  width: 250px;
-  position: absolute;
-  z-index: 2;
-  align-self: center;
-  margin: 0;
-  top: 43px;
-  font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
-  =======
   /* flex-basis: 300px; */
   max-width: 400px;
   position: relative;
@@ -162,18 +123,13 @@ input[type="number"] {
   z-index: 2;
   margin: 0 20px 0 0;
   font-size: 14px;
-  >>>>>>>Stashed changes
 }
 
 .suggestions>li {
   text-align: left;
-  <<<<<<< Updated upstream padding: 8px 6px 8px 10px;
-  background-color: #eee;
-  cursor: default;
-  =======padding: 8px 26px 8px 30px;
+  padding: 8px 26px 8px 30px;
   background-color: white;
   cursor: pointer;
-  >>>>>>>Stashed changes
 }
 
 .suggestions>li:last-child {
@@ -182,32 +138,7 @@ input[type="number"] {
 }
 
 .suggestions>li:hover {
-  <<<<<<< Updated upstream background-color: #bcdcdb;
-}
-
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-}
-
-.details-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: 600;
-  =======background-color: #147ef613;
+  background-color: #147ef613;
 }
 
 .name {
@@ -223,7 +154,6 @@ input[type="number"] {
 .extra-details,
 .card-body {
   color: var(--col-pri) !important;
-  >>>>>>>Stashed changes
 }
 
 .group-name {
@@ -240,13 +170,7 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-<<<<<<< Updated upstream .numberOfEvents {
-  width: 200px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-=======>>>>>>>Stashed changes .button-wrapper {
+.button-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -254,61 +178,26 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-<<<<<<< Updated upstream .Alert {
-  position: fixed;
-  top: 20px;
-}
-
 .data-vis-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  =======.data-vis-wrapper {
-    display: flex;
-    justify-content: center;
-    >>>>>>>Stashed changes align-items: center;
-    flex-direction: column;
-  }
+.data-vis-wrapper .recharts-responsive-container {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  .data-vis-wrapper .recharts-responsive-container {
-    min-width: 100%;
-    display: flex;
-    <<<<<<< Updated upstream=======justify-content: center;
-  }
+.recharts-wrapper {
+  justify-content: center;
+  max-width: 100% !important;
+}
 
-  .recharts-wrapper {
-    justify-content: center;
-    max-width: 100% !important;
-    >>>>>>>Stashed changes
-  }
-
-  .recharts-surface {
-    overflow: visible;
-    <<<<<<< Updated upstream
-  }
-
-  .login-button {
-    color: #494949;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ffffff;
-    padding: 20px;
-    border: 4px solid #494949;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-    min-width: 10rem;
-    margin: 1rem;
-  }
-
-  .google-btn {
-    width: 184px;
-    height: 42px;
-    margin: 1rem;
-    background-color: #4285f4;
-    border-radius: 2px;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-  }
-
-  =======
+.recharts-surface {
+  overflow: visible;
 }
 
 .login-button {
@@ -333,7 +222,7 @@ input[type="number"] {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
->>>>>>>Stashed changes .google-btn:hover {
+.google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
 }
 
@@ -359,18 +248,7 @@ input[type="number"] {
   height: 18px;
 }
 
-<<<<<<< Updated upstream .btn-text {
-  float: right;
-  margin: 11px 11px 0 0;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  font-family: "Roboto";
-}
-
-
-
-=======>>>>>>>Stashed changes @media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   .data-vis-wrapper {
     flex-direction: row;
   }

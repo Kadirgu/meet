@@ -1,18 +1,6 @@
 import { mockData } from './mock-data';
-<<<<<<< Updated upstream
-
-/**
- *
- * @param {*} events:
- * The following function should be in the “api.js” file.
- * This function takes an events array, then uses map to create a new array with only locations.
- * It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
- * The Set will remove all duplicates from the array.
- */
-=======
 import axios from 'axios';
 import NProgress from 'nprogress';
->>>>>>> Stashed changes
 
 export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
@@ -20,10 +8,6 @@ export const extractLocations = (events) => {
     return locations;
 };
 
-<<<<<<< Updated upstream
-export const getEvents = async () => {
-    return mockData;
-=======
 export const checkToken = async (accessToken) => {
     const result = await fetch(
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -115,5 +99,4 @@ const removeQuery = () => {
         newurl = window.location.protocol + "//" + window.location.host;
         window.history.pushState("", "", newurl);
     }
->>>>>>> Stashed changes
 };
