@@ -38,7 +38,7 @@ export const getEvents = async () => {
     if (token) {
         removeQuery();
         // eslint-disable-next-line no-useless-concat
-        const url = `https://mxhxn56ja0.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
+        const url = `https://zy85c0f6wf.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
         const result = await axios.get(url);
         if (result.data) {
             var locations = extractLocations(result.data.events);
