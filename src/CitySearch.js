@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+<<<<<<< Updated upstream
 /*Component where User can select a city from the list of suggestions*/
 class CitySearch extends Component {
     constructor(props) {
@@ -10,6 +11,15 @@ class CitySearch extends Component {
             showSuggestions: undefined
         }
     }
+=======
+
+class CitySearch extends Component {
+    state = {
+        query: '',
+        suggestions: [],
+        showSuggestions: undefined
+    };
+>>>>>>> Stashed changes
 
     handleInputChange = (event) => {
         const value = event.target.value;
@@ -20,6 +30,7 @@ class CitySearch extends Component {
             query: value,
             suggestions,
         });
+<<<<<<< Updated upstream
     }
 
     handleItemClick = (suggestion) => {
@@ -30,9 +41,22 @@ class CitySearch extends Component {
         //triggers function of parent component <App/>
         this.props.updateEvents(suggestion)
     }
+=======
+    };
+>>>>>>> Stashed changes
+
+    handleItemClicked = (suggestion) => {
+        this.setState({
+            query: suggestion,
+            showSuggestions: false
+        });
+
+        this.props.updateEvents(suggestion);
+    }
 
     render() {
         return (
+<<<<<<< Updated upstream
             <div className='CitySearch' >
                 <input type='text'
                     className='city'
@@ -50,11 +74,36 @@ class CitySearch extends Component {
                     ))
                     } <li onClick={() => this.handleItemClick('all')} >
                         <b> See all cities </b>
+=======
+            <>
+                <div className="CitySearch text-muted">In which city would you like to join?</div>
+                <input
+                    type="text"
+                    className="city mt-3"
+                    value={this.state.query}
+                    onChange={this.handleInputChanged}
+                    onFocus={() => { this.setState({ showSuggestions: true }) }}
+                />
+                <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
+                    {
+                        this.state.suggestions.map((suggestion) => (
+                            <li
+                                key={suggestion}
+                                onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
+                        ))}
+                    <li onClick={() => this.handleItemClicked("Everywhere")}>
+                        <b>See all cities</b>
+>>>>>>> Stashed changes
                     </li>
 
                 </ul>
+<<<<<<< Updated upstream
             </div >
         )
+=======
+            </>
+        );
+>>>>>>> Stashed changes
     }
 }
 
