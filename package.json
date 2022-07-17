@@ -57,6 +57,8 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "jest-cucumber": "^3.0.1",
+    "puppeteer": "^15.4.0"
   }
 }
