@@ -27,7 +27,7 @@ defineFeature(feature, test => {
         }
     );  
    
-    test('User should see a list of suggestions when they search for a city', 
+    test('User should receive a list of suggestions when they search for a city', 
         ({ given, when, then }) => {
             
             let CitySearchWrapper;
@@ -50,7 +50,7 @@ defineFeature(feature, test => {
         }
     );
 
-    test('User can select a city from the suggested list', 
+    test('User can change a city from the suggested list', 
         ({ given, and, when, then }) => {
 
             let AppWrapper;
