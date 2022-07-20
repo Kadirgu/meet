@@ -55,7 +55,7 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div classname="App" />
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
        <div className='App'>
        {!navigator.onLine &&<OfflineAlert id='warningAlert' text={'You are currently offline, data may be not updated.'} />}
