@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { extractLocations, getEvents } from "./api";
 import "./App.css";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
