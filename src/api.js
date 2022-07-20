@@ -2,6 +2,7 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
+
 export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
     var locations = [...new Set(extractLocations)];
@@ -32,6 +33,12 @@ export const getEvents = async () => {
         NProgress.done();
         return data ? JSON.parse(data).events : [];;
     }
+
+    if (result.data) {
+        var locations = extractLocations(result.data.events);
+        localStorage.setItem('lastEvents', JSON.stringify(result.data));
+        localStorage.setItem('locations', JSON.stringify(locations));
+      }
 
     const token = await getAccessToken();
 

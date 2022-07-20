@@ -6,7 +6,9 @@ import EventList from "./EventList";
 import "./nprogress.css";
 import NumberOfEvents from "./NumberOfEvents";
 import { OfflineAlert } from './Alert';
-
+import WelcomeScreen from './WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from
+'./api';
 
 class App extends Component {
   state = {
@@ -15,6 +17,7 @@ class App extends Component {
     currentLocation: "all",
     numberOfEvents: 32,
     warningText: '',
+    showWelcomeScreen: undefined
   };
 
   componentDidMount() {
@@ -53,17 +56,14 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.showWelcomeScreen === undefined) return <div classname="App" />
     return (
-      <div className='App'>
-        {!navigator.onLine &&<OfflineAlert id='warningAlert' text={'You are currently offline, data may be not updated.'} />}
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
-        <NumberOfEvents updateNumberOfEvents={this.updateNumberOfEvents} />
-        <EventList events={this.state.events} />
+      <div className="App">
+      {/* Other components such as CitySearch, EventList,...etc */}
+      <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+      getAccessToken={() => { getAccessToken() }} />
       </div>
-    );
+      );
   }
 }
 
