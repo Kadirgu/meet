@@ -19,7 +19,7 @@ return props.showWelcomeScreen ?
                 </button>
             </div>
         </div>
-            <a href="https://cpalmerbelcher.github.io/meet1/privacy.html" rel="nofollow noopener">Privacy policy</a>
+            <a href="https://Kadirgu.github.io/meet1/privacy.html" rel="nofollow noopener">Privacy policy</a>
         </div>
     )
     : null
