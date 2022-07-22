@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { extractLocations, getEvents } from "./api";
 import "./App.css";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import "./nprogress.css";
 import NumberOfEvents from "./NumberOfEvents";
 import { OfflineAlert } from './Alert';
-
+import WelcomeScreen from './WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from
+'./api';
 
 class App extends Component {
   state = {
@@ -15,16 +16,34 @@ class App extends Component {
     currentLocation: "all",
     numberOfEvents: 32,
     warningText: '',
+    showWelcomeScreen: undefined
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
-    });
-  }
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+        if ((code || isTokenValid) && this.mounted) {
+                getEvents().then((events) => {
+                    if (this.mounted) {
+                    this.setState({ events, locations: extractLocations(events) });
+                }
+                });
+        }
+        
+    }
+
+  // componentDidMount() {
+  //   this.mounted = true;
+  //   getEvents().then((events) => {
+  //     if (this.mounted) {
+  //       this.setState({ events, locations: extractLocations(events) });
+  //     }
+  //   });
+  // }
 
   componentWillUnmount() {
     this.mounted = false;
@@ -53,6 +72,7 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.showWelcomeScreen === undefined) <div className='App'></div>
     return (
       <div className='App'>
         {!navigator.onLine &&<OfflineAlert id='warningAlert' text={'You are currently offline, data may be not updated.'} />}
@@ -62,6 +82,7 @@ class App extends Component {
         />
         <NumberOfEvents updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
