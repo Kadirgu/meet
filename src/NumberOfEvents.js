@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
-
+import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
+  state = {
+    errorText: ''
+  };
 
-  state = { 
-    numberOfEvents : 1
-  }
-
-  changeNumOfEvents = (e) => {
-    let newValue = parseInt(e.target.value);
-    if ((newValue > 33) || (newValue < 1)) {
+  handleInputChanged = event => {
+    let value = event.target.value;
+    if (value === '') { value = undefined };
+    // If value is negative or greater 32, display an error, else update list of events
+    if (value <= 0 || value > 32) {
       this.setState({
-        numberOfEvents: newValue,
-        infoText: 'Please choose a number between 1 and 32',
+        errorText: 'Select a number from 1 to 32'
       })
     } else {
+      this.props.updateNumberOfEvents(value);
       this.setState({
-        numberOfEvents: newValue,
-        infoText: ' ',
+        errorText: ''
       })
     }
-        this.props.updateEvents(undefined, newValue);
   }
 
   render() {
     return (
-      <>
-      <div className="numberOfEvents text-muted">How many events would you like to see?</div>
-      <input 
-            className="events_number__input my-3" 
-            type="number" 
-            onChange={this.changeNumOfEvents}
-            value={this.state.numberOfEvents}>
-        </input>
-      <ErrorAlert text={this.state.infoText} />
-      </>
-    );
+
+      <div className='numberOfEvents'>
+        <ErrorAlert id='errorAlert' text={this.state.errorText} />
+        <input
+          type='number'
+          className='number'
+          placeholder='Number of events to show'
+          onChange={this.handleInputChanged}
+        />
+      </div>
+
+    )
   }
 }
 
