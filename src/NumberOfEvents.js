@@ -2,35 +2,41 @@ import React, { Component } from 'react';
 
 
 class NumberOfEvents extends Component {
-    state = {
-        numberOfEvents: 32,
-    };
 
-    handleInputChanged = (event) => {
-        const value = event.target.value;
-        if (!isNaN(value) && value >= 0 && value <= 32) {
-            this.setState({ numberOfEvents: value, ErrorText: '' });
-        } else {
-            this.setState({ ErrorText: 'Please select a number from 1 to 32.' });
-        }
-        this.props.updateEvents(undefined, value);
-    };
+  state = { 
+    numberOfEvents : 1
+  }
 
-    render() {
-        return (
-            <div className="numberOfEvents">
-                <label htmlFor="events-number">Number of Events: </label>
-                <br />
-                <input
-                    type="text"
-                    id="events-number"
-                    autoComplete="off"
-                    value={this.state.numberOfEvents}
-                    onChange={this.handleInputChanged}
-                />
-                <ErrorAlert text={this.state.ErrorText} />
-            </div>
-        );
+  changeNumOfEvents = (e) => {
+    let newValue = parseInt(e.target.value);
+    if ((newValue > 33) || (newValue < 1)) {
+      this.setState({
+        numberOfEvents: newValue,
+        infoText: 'Please choose a number between 1 and 32',
+      })
+    } else {
+      this.setState({
+        numberOfEvents: newValue,
+        infoText: ' ',
+      })
     }
+        this.props.updateEvents(undefined, newValue);
+  }
+
+  render() {
+    return (
+      <>
+      <div className="numberOfEvents text-muted">How many events would you like to see?</div>
+      <input 
+            className="events_number__input my-3" 
+            type="number" 
+            onChange={this.changeNumOfEvents}
+            value={this.state.numberOfEvents}>
+        </input>
+      <ErrorAlert text={this.state.infoText} />
+      </>
+    );
+  }
 }
+
 export default NumberOfEvents;
