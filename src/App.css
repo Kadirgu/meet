@@ -20,6 +20,33 @@ p {
 .display-none {
   display: none;
 }
+
+.topBar {
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  column-gap: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 0% 10%;
+}
+
+input[type="text"],
+input[type="number"] {
+
+  border-radius: 38px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 20px;
+  height: 38px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding-left: 8px;
+}
+
 .showSuggestions {
   display: block;
 }
@@ -199,6 +226,25 @@ input[type="number"] {
 }
 
 
+.data-vis-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 0% 5%;
+}
+
+.data-vis-wrapper .recharts-responsive-container {
+  min-width: 100%;
+  display: flex;
+}
+
+.recharts-surface {
+  overflow: visible;
+}
+
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
@@ -212,11 +258,11 @@ input[type="number"] {
   }
 }
 
-  .Alert {
+   .Alert {
     position: fixed;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 700;
     z-index: 999;
     margin-top: 50px;
-  }
+  } 
